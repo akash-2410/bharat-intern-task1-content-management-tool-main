@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: rgba(245, 245, 245, 0.8);
+        }
+
+        .custom-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .custom-card {
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            animation-duration: 1s;
+            animation-name: fadeInUp;
+        }
+
+        .custom-card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .custom-card-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            background-color: #00bcd4;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <h1 class="animate__animated animate__bounceIn">All Blogs</h1>
+
+        <div class="row">
+            <% for(let item of allBlogs) { %>
+                <div class="col s12 m6">
+                    <div class="custom-card animate__animated animate__fadeInUp">
+                        <img src="<%= item.photo[0] %>" alt="Blog Image" style="max-width: 100%; height: auto;">
+                        <h5 class="custom-card-title"><%= item.title %></h5>
+                        <p class="custom-card-text">By: <%= item.name %></p>
+                        <div>
+                            <a href="/read-blog/<%= item.id %>" class="custom-button animate__animated animate__fadeIn">Read</a>
+                            <form action="/delete-blog/<%= item.id %>" method="POST" style="display: inline;">
+                                <button type="submit" class="custom-button animate__animated animate__fadeIn">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Add animation classes when the document is ready
+        $(document).ready(function() {
+            $('.custom-container').addClass('animate__animated animate__bounceIn');
+            $('.custom-card').addClass('animate__animated animate__fadeInUp');
+            $('.custom-button').addClass('animate__animated animate__fadeIn');
+        });
+    </script>
+</body>
+</html>

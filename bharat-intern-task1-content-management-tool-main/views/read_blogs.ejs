@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read-Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <style>
+        .custom-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .custom-header {
+            background-color: #00d1b2;
+            padding: 1rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .custom-card {
+            margin-bottom: 1rem;
+        }
+
+        .custom-card-image {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-container">
+        <div class="custom-header">
+            <h2 class="is-size-3 has-text-white"><%= item.title %></h2>
+            <h5 class="is-size-6 has-text-white">By: <%= item.name %></h5>
+            <h5 class="is-size-6 has-text-white">Contact us: <%= item.email %></h5>
+        </div>
+
+        <div class="custom-card">
+            <div class="card-content">
+                <div class="content">
+                    <p><%= item.text %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <% for (var i = 0; i < item.photo.length; i++) { %>
+            <div class="column is-one-quarter">
+                <div class="card custom-card-image" style="background-image: url('<%= item.photo[i] %>')"></div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

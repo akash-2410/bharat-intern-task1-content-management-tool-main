@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fb;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation-duration: 1s;
+            animation-name: fadeIn;
+        }
+
+        .form-container h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        /* Add custom animation class to the form */
+        .form-container.animated {
+            animation-duration: 1s;
+            animation-name: slideInDown;
+        }
+
+        /* Delay the appearance of the form */
+        .form-container.delay-1s {
+            animation-delay: 1s;
+        }
+
+        .form-container .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .form-container .input-group input,
+        .form-container .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            outline: none;
+            background-color: #edf2f7;
+            color: #2d3748;
+        }
+
+        .form-container .input-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4299e1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #3182ce;
+        }
+
+        .form-container .link-container a {
+            color: #718096;
+        }
+
+        .form-container .link-container a:hover {
+            color: #4a5568;
+        }
+
+        /* Additional styles for colors */
+        body {
+            background-color: #cbd5e0;
+        }
+
+        .form-container {
+            background-color: #edf2f7;
+        }
+
+        .form-container h1 {
+            color: #2d3748;
+        }
+
+        .form-container .input-group label {
+            color: #4a5568;
+        }
+
+        .form-container .input-group input,
+        .form-container .input-group textarea {
+            background-color: #e2e8f0;
+            color: #2d3748;
+        }
+
+        .form-container button {
+            background-color: #4c51bf;
+        }
+
+        .form-container button:hover {
+            background-color: #434190;
+        }
+
+        .form-container .link-container a {
+            color: #718096;
+        }
+
+        .form-container .link-container a:hover {
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body class="bg-gray-200">
+    <div class="container mx-auto py-10">
+        <!-- Add animation classes to the form container -->
+        <div class="form-container animated delay-1s">
+            <h1 class="text-2xl">Add Blog</h1>
+            <div class="link-container">
+                <a href="/show-blogs">Show Blogs</a>
+            </div>
+            <form action="/add-blog" method="POST">
+                <div class="input-group">
+                    <label for="fname">First name</label>
+                    <input type="text" name="fname" id="fname" />
+                </div>
+                <div class="input-group">
+                    <label for="lname">Last name</label>
+                    <input type="text" name="lname" id="lname" />
+                </div>
+                <div class="input-group">
+                    <label for="title">Blog Title</label>
+                    <input type="text" name="title" id="title" />
+                </div>
+                <div class="input-group">
+                    <label for="image1">Images Links</label>
+                    <input type="text" name="image1" id="image1" placeholder="Link-1" />
+                    <input type="text" name="image2" id="image2" placeholder="Link-2" />
+                    <input type="text" name="image3" id="image3" placeholder="Link-3" />
+                    <input type="text" name="image4" id="image4" placeholder="Link-4" />
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="input-group">
+                    <label for="content">Blog Information</label>
+                    <textarea name="content" id="content" rows="4"></textarea>
+                </div>
+                <button type="submit">Create Blog</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Add animation classes when the document is ready
+        $(document).ready(function() {
+            $('.form-container').addClass('animated delay-1s');
+        });
+    </script>
+</body>
+</html>
